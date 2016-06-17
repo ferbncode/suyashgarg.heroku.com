@@ -1,0 +1,112 @@
+<html>
+<title>{%block title%}{%endblock%}</title>
+<head>
+{%block head%}
+<link href="{{url_for('static',filename='css/semantic.min.css')}}", rel="stylesheet" type="text/css">
+<link href="{{url_for('static', filename='css/semantic.css')}}", rel="stylesheet" type="text/css">
+<script src="{{url_for('static',filename='js/semantic.js')}}"></script>
+<script src="{{url_for('static', filename='js/semantic.min.js')}}"></script>
+{%endblock%}
+</head>
+<body>
+{%block body%}
+<!--Navbar code-->
+<div id="wrapper">
+<div id="header"
+<div class="ui inverted large menu">
+  <a class="active green item"><h3>Suyash Garg</h3></a>
+  <a class="item">Home</a>
+  <a class="item">Career</a>
+  <a class="item">Projects</a>
+  <a class="item">Blog</a>
+  <a class="item">About me</a>
+  <a class="item">Contact me</a>
+</div>
+
+<!--end of navbar div. Beginning of grid structure-->
+<div id="content">
+<div style="position:relative;top:100px">
+<div class="ui internally celled grid">
+  <div class="row">
+    <div class="two wide column">
+      <img>
+    </div>
+    <div class="twelve wide column">
+      <div>{%block priordiv%}{%endblock%}</div>
+    </div>
+    <div class="two wide column">
+      <img>
+    </div>
+  </div>
+  <div class="row">
+    <div class="two wide column">
+      <img>
+    </div>
+    <div class="twelve wide column">
+      <div>{%block maindiv%}{%endblock%}</div>
+    </div>
+    <div class="two wide column">
+      <img>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!--footer-->
+<div id="footer">
+<div class="ui inverted segment">
+  <div class="ui inverted secondary menu">
+    <div class="ui red three item inverted menu">
+	  <div class="item">
+	  	<p>
+	    <strong><font size="3.5"><i>This site: </i></font></strong><br/> <br/>Powered by Flask<br \>
+	    Credits: Semantic UI, jquery</p>
+	  </div>
+  <p class="item">
+    
+  </p>
+  <div class="item">
+  <div class="ui icon menu">
+  <a class="item">
+    <i class="gamepad icon"></i>
+  </a>
+  <a class="item">
+    <i class="video camera icon"></i>
+  </a>
+  <a class="item">
+    <i class="video play icon"></i>
+  </a>
+</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<!--footer End-->
+</div>
+</div>
+{%endblock%}
+</body>
+<style type="text/css">
+	html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#content {
+   
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+}
+</style>

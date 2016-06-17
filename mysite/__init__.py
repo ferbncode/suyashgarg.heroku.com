@@ -15,7 +15,7 @@ app.register_blueprint(projects, url_prefix='/projects')
 
 @app.route('/')
 def index():
-	return "this is where rest of the features go"
+	return render_template("index.html") 
 
 @app.route('/contactme')
 def contact():
