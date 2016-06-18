@@ -6,3 +6,73 @@
 {{super()}}
 {%endblock%}
 
+
+{%block maindiv%}
+<div class="ui grid">
+<div class="row">
+<div class="five wide column">
+    <div class="active side">
+      <div class="ui card">
+        <div class="image">
+          <img src="{{url_for('static', filename='images/suyash.jpg')}}">
+        </div>
+        <div class="content">
+          <div class="header">Suyash Garg</div>
+          <div class="meta">
+            <a>@ferbncode</a>
+          </div>
+          <div class="description">
+            Third Year Computer Science Student at National Institute of Technology, Hamirpur.
+          </div>
+        </div>
+        <div class="extra content">
+          <span>
+            <i class="mail square icon"></i>
+            suyashgargsfam@gmail.com
+          </span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="eleven wide column">
+<p><font size="5">Hello everyone!</font><br/><br/>
+<font size="3">I am Suyash Garg, a third year computer science undergrad at National Institute of Technology, Hamirpur (India). I am highly enthusiastic about fields like machine learning, artificial intelligence and algorithm design. <br/><br/></font></p>
+<p><font size="3"></font></p>
+<div class="ui grid">
+  <div class="three column row">
+  <div class="column">
+  	<div class="ui card">
+  	<div class="content">
+  	<div class="header" align="center"><a href='/aboutme'>About me</a></div>
+    <div align="center"><i class="dashboard massive icon" style="color:#154360"></i></div>
+    <p align="center">Know more about me</p>
+    </div>
+    </div>
+   </div>
+    <div class="column">
+    	<div class="ui card">
+  		<div class="content">
+	  	<div class="header" align="center"><a href='/code'>Code</a></div>
+	    <div align="center"><i class="code massive icon" style="color:#28B463"></i></div>
+	    <p align="center">Find my work samples</p>
+	    </div>
+	    </div>
+	</div>
+    <div class="column">
+    	<div class="ui card">
+  		<div class="content">
+  		<div class="header" align="center"><a href='/contact'>Contact</a></div>
+   		<div align="center"><i class="comments massive icon" style="color:#17202A"></i></div>
+   		<p align="center">Contact me</p>
+    	</div>
+   		</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    
+
+{%endblock%}
+
+
