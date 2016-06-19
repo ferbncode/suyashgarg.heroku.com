@@ -4,6 +4,6 @@ blog = Blueprint('blog', __name__)
 
 @blog.route('/')
 def index():
-	return "This is blog main page"
+	return render_template('blog/index.html')
 
 

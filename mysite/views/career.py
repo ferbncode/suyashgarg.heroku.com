@@ -4,7 +4,7 @@ career = Blueprint('career', __name__)
 
 @career.route('/')
 def index():
-	return "This is career main page"
+	return render_template('career/index.html')
 
 
 
