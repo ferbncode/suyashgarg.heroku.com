@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from .views.blog import blog
 from .views.projects import projects
 from .views.career import career
@@ -25,9 +25,9 @@ def contact():
 def know_more():
 	return "This is the know me more page"
 
-@app.route('/work')
+@app.route('/code')
 def work():
-	return "This is the work page"
+	return redirect("https://github.com/ferbncode")
 
 @app.route('/resume')
 def resume():
