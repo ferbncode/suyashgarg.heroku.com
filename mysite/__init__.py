@@ -5,7 +5,7 @@ from .views.career import career
 
 app = Flask(__name__)
 app.secret_key = "sdadfafgaga"
-
+app.debug = True
 # registering blueprints
 
 app.register_blueprint(blog, url_prefix='/blog')
@@ -33,8 +33,6 @@ def work():
 def resume():
 	return "Here goes your resume"
 
-if __name__ == '__main__':
-	app.run(debug=True)
 
 
 
