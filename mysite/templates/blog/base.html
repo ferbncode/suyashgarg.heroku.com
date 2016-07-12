@@ -3,12 +3,9 @@
 <head>
 {%block head%}
 <link href="{{url_for('static',filename='css/semantic.min.css')}}", rel="stylesheet" type="text/css">
-
 <link href="{{url_for('static', filename='css/semantic.css')}}", rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="{{url_for('static',filename='js/semantic.js')}}"></script>
 <script src="{{url_for('static', filename='js/semantic.min.js')}}"></script>
-
 {%endblock%}
 </head>
 <body>
@@ -17,28 +14,26 @@
 <div id="wrapper">
 <!--end of navbar div. Beginning of grid structure-->
 <div id="content">
-<div style="position:relative;top:20px">
-<div class="ui internally stackable grid container">
+<div style="position:relative;top:40px">
+<div class="ui internally grid">
   <div class="row">
-  <div class="one wide column"></div>
+  <div class="two wide column"></div>
     <div class="three wide column">
-    <div class="ui">
-    <div>
-    <img class="ui image" style="border-radius: 50%;max-height:120px" src="{{url_for('static', filename='images/output2.jpg')}}">
-    </div>
+    <div class="ui" >
+    <img class="ui image" style="border-radius: 50%;max-height:150px" src="{{url_for('static', filename='images/suyash23.jpg')}}">
   <div class="content">
   <br/>
-    <a class="header" href="/"><font color="#000" size="5">Suyash Garg</font></a>
+    <a class="header" href="/"><font color="#000"><h2>Suyash Garg</h2></font></a>
     <p>@ferbncode</p>
     <a href='/'>Home</a><br/>
     <a href='/blog'>Blog</a><br/>
     <a href='/projects'>Projects</a><br/>
-    <a href='/code'>Code</a><br/><br/>
-<div>
-<button class="ui primary mini button" onclick="location.href='https://twitter.com/ferbncode'">
+    <a href='/career'>Career</a><br/><br/>
+
+<button class="ui primary small button" onclick="location.href='https://twitter.com/ferbncode'">
 <i class="twitter icon"></i>
   Follow @ferbncode
-</button></div><br/>
+</button><br/><br/>
 
 <button class="ui circular facebook icon button" onclick="location.href='https://www.facebook.com/profile.php?id=100004815735036'">
   <i class="facebook icon"></i>
@@ -52,10 +47,12 @@
 <button class="ui circular google plus icon button">
   <i class="google plus icon"></i>
 </button>
+
+
   </div>
 </div>
     </div>
-    <div class="eleven wide column">
+    <div class="ten wide column">
       <div>{%block maindiv%}{%endblock%}</div>
     </div>
     <div class="two wide column">
@@ -77,15 +74,14 @@
 <div id="footer">
 <div class="ui inverted segment">
   <div class="ui inverted secondary menu">
-    <div class="ui red three item stackable inverted menu">
+    <div class="ui red three item inverted menu">
 	  <div class="item">
 	  	<p>
 	    <strong><font size="3.5"><i>This site: </i></font></strong><br/> <br/>Powered by Flask<br \>
-	    Credits: Semantic UI, jquery<br/>Find Website Code <a href="https://github.com/ferbncode/suyashgarg.heroku.com">Here</a><br>
-	    <i class='copyright icon'></i>Suyash Garg 2016</p>
+	    Credits: Semantic UI, jquery<br/>Find Website Code <a href="https://github.com/ferbncode/suyashgarg.heroku.com">Here</a></p>
 	  </div>
   <div class="item">
-  <div class="ui icon inverted stackable menu">
+  <div class="ui icon inverted menu">
   <a class="item" href="">
     <i class="google plus square large icon"></i>
   </a>
@@ -114,6 +110,7 @@
   		</div>
   		<div class="results"></div>
 	</div>
+    
   </div>
 
   </div>

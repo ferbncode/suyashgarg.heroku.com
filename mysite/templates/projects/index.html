@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%block head%}
+{{super()}}
+{%endblock%}
+{%block body%}
+{{super()}}
+{%endblock%}
+{%block maindiv%}
+<h1><u>Projects</u></h1><br/>
+<div class="ui cards">
+{%for project in projects_summary%}
+  <div class="card">
+    <div class="content">
+      <div class="header">
+        {{project['subject']}}
+      </div>
+      <div class="meta">
+        {{project['date']}}
+      </div>
+      <div class="description">
+	  {{project['Line']}}
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic blue button" onclick="location.href='{{project['codeurl']}}'">Project Code.</div>
+        <div class="ui basic green button" onclick="location.href='/projects/{{project['subject']}}'">Read More.</div>
+      </div>
+    </div>
+  </div>
+ {%endfor%}
+  </div>
+{%endblock%}
