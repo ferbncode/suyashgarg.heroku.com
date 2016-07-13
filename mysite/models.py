@@ -1,8 +1,8 @@
 import sqlite3
 from flask import g
-
-DATABASE = 'mysite.db'
-
+import os
+dir_path = os.path.dirname(os.path.abspath('__init__.py'))
+DATABASE = os.path.join(dir_path, 'mysite.db')
 def get_db():
 	db = getattr(g, '_database', None)
 	if db is None:
