@@ -1,1 +1,1 @@
-web: gunicorn mysite.__init__ --log-file -
+web: gunicorn app.py--log-file -
