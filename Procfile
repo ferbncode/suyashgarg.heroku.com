@@ -1,1 +1,1 @@
-heroku ps:scale web=1
+web: gunicorn mysite.__init__ --log-file -
