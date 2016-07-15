@@ -73,17 +73,26 @@ As you can see that there are many different images taken in the dataset. An imp
 <br/><br/>
 Though i am not a very good driver, i labelled the dataset by myself. So, the source of all noise is my driving!. This is the point that needs most improvement. I know its a bit naive but i couldnot have a very large dataset (like ALVINN does by noting image and action taken by actual driver) since i am using the raspberry pi. Also, this is just a part of the reinforcement learner, so that the initial random action is not very random (and based on this supervised learner).
 <br/>
-<strong><u>Dataset</u></strong>: So, the blue intensities of all images are taken as the dataset elements with my choosen actions. The final dataset has 458 examples.
+<strong><u>Dataset</u></strong>: So, the blue intensities of all images are taken as the dataset elements with my choosen actions. The final dataset has 458 examples. More features need to be used for scaling the problem better. These features could be input from ultrasonic sensors of nearby objects. (The reinforcement learner is based on that). 
 <br/>
 <h4>A Suitable Evaluation Metric</h4>
 The dataset is too biased. Most of the acions(labels) are forward. Thus accuracy would not be a very good method for evaluation of the learning algorithm. For biased dataset F1 score is a very good evaluation metric. For recalling,
 <br/><br/>
 <div align="center">
 <font size=2>
-	F1_score = 2(precision)(recall)/(precision + recall)
+	F1 Score = 2(precision)(recall)/(precision + recall)
 	<br/>		
 </font>
-
-
 </div>
+<h4>Choosing a suitable classifier</h4>
+Though an svm is a good classifier for such a small dataset with so many features, a decision tree classifier with maximum depth of 4 brought a better F1 score on the above dataset. I know this part needs to be improved and a k-cross validation would be a better thing to do and choose classifier. However, based on info gain, the decision tree classifier picks up the pixels that most precisely determine the action. This is poor due to noise and will be improved further. 
+
+<h4>Choosing Actions for the Raspberry PI</h4>
+
+<p>The output of the classifier is the action to be taken by the raspberry pi car. The raspberry pi car is made using the L298N motor driver. Speed would have been a good thing to learn. However this initial code of the project doesnot have this support. The pi instructs the motor driver to choose specific action. It takes a picture of the road every 2 seconds and then decides accordingly for the next 2 seconds. This whole model works good on the test set with a F1 score of 0.78. This can be further improved. This way the car is able to take action and act accordingly over my floor road :-). </p>
+
+
+<br/>
+<h3><u>Reinforcement Learning</u></h3>
+
 {%endblock%}
