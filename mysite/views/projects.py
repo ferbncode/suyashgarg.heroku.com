@@ -16,4 +16,6 @@ def projectread(projectname):
 	if project_detail == []:
 		return "Its a 404 buddy",404
 	return render_template("projects/projdet.html", project_detail = project_detail)
-
+@projects.route('/test')
+def pr():
+	return render_template('projects/detailTest.html')

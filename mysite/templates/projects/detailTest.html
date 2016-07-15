@@ -76,4 +76,14 @@ Though i am not a very good driver, i labelled the dataset by myself. So, the so
 <strong><u>Dataset</u></strong>: So, the blue intensities of all images are taken as the dataset elements with my choosen actions. The final dataset has 458 examples.
 <br/>
 <h4>A Suitable Evaluation Metric</h4>
+The dataset is too biased. Most of the acions(labels) are forward. Thus accuracy would not be a very good method for evaluation of the learning algorithm. For biased dataset F1 score is a very good evaluation metric. For recalling,
+<br/><br/>
+<div align="center">
+<font size=2>
+	F1_score = 2(precision)(recall)/(precision + recall)
+	<br/>		
+</font>
+
+
+</div>
 {%endblock%}
