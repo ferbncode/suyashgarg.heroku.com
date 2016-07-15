@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{%block head%}
+{{super()}}
+{%endblock%}
+{%block body%}
+{{super()}}
+{%endblock%}
+{%block maindiv%}
+<p><font size="6">AutoDrive</font></p>
+May 2016
+<hr>
+<br/>
+
+<h2>What is Autonomous Driving?</h2>
+
+An autonomous car (driverless car, self-driving car, robotic car) is a vehicle that is capable of sensing its environment and navigating without human input.
+I am just making a simple attempt to train my raspberry pi car to autodrive on my home floor. (just an approach to put my raspberry pi to some use). I am using
+two approaches and then i plan to combine both the approaches to make a self-driving car that runs well through my house. The applications of solving this problem are
+sempiternal (like a robo-nurse in a hospital environment). Let us start up with the supervised approach first. Then we would go on with reinforcement learning approach and then try to combine them both. The whole project may be quite naive. (It's my first proper ml project). All suggestions are welcome. :-).
+Find the project code <a href='https://github.com/ferbncode/AutoDrive'>here</a>.
+<br/><br/>
+<div align="center">
+<img style="max-width:350px;border-radius:3%" src="{{url_for('static', filename='images/car3.jpg')}}" alt="Image of the Raspberry Pi Car">
+<p>The Raspberry Pi Car</p>
+</div>
+<h3><u>Supervised Approach</u></h3>
+
+<h4>The Pipeline.</h4>
+
+Its good to have a proper pipeline before starting with a proper machine learning problem. Let us just list the pipeline steps and then discuss steps one by one. A ceil test may later help me determine the step that needs more attention. This is a supervised learning approach pipeline.
+<ul>
+<li>Getting the Dataset</li>
+<li>Processing Dataset and Labelling it.</li>
+<li>Deciding features</li>
+<li>Choosing a suitable evaluation metric</li>
+<li>Choosing a suitable classifier</li>
+<li>Improve and choosing actions for the raspberry pi car</li>
+</ul>
+
+<h4>Getting Dataset, Processing and Labelling the Dataset.</h4>
+
+The CMU /VSAC Image DataBase was used to gather the road images. Different road situations were present in the dataset. The dataset presented by CMU/VSAC is taken from various NavLabs. Find the dataset <a href="http://vasc.ri.cmu.edu/idb/html/road">here</a>.
+<br/>
+<br/>
+<div class="ui tiny images" align="center">
+	<img class="ui image" src="{{url_for('static', filename='images/1.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/2.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/3.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/4.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/5.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/6.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/7.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/8.png')}}">
+</div>
+As you can see that there are many different images taken in the dataset. An important thing to note is that for the raspberry pi car, the roads would seem similar (atleast, that holds true for my home floor :) )
+<br/>
+<br/>
+<p>Applying K-Means to the above dataset generates us with the following sort of images:
+<br/>
+
+<div class="ui tiny images" align="center">
+	<img class="ui image" src="{{url_for('static', filename='images/A8.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A1.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A6.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A5.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A3.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A2.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A4.png')}}">
+	<img class="ui image" src="{{url_for('static', filename='images/A7.png')}}">
+</div>
+
+<strong>Observation from KMeans Clustering</strong> : The blue intensity of the two clusters in all the above clustered images presents the best distinction between the road and the ground. This comes straight from the ALVINN paper, however, having some concreteness is quite important before moving forward. Find the K-Means clustering implementation <a href="https://github.com/ferbncode/No-Free-Lunch/tree/master/Image%20Compression">here</a>.
+<br/><br/>
+Though i am not a very good driver, i labelled the dataset by myself. So, the source of all noise is my driving!. This is the point that needs most improvement. I know its a bit naive but i couldnot have a very large dataset (like ALVINN does by noting image and action taken by actual driver) since i am using the raspberry pi. Also, this is just a part of the reinforcement learner, so that the initial random action is not very random (and based on this supervised learner).
+<br/>
+<strong><u>Dataset</u></strong>: So, the blue intensities of all images are taken as the dataset elements with my choosen actions. The final dataset has 458 examples.
+<br/>
+<h4>A Suitable Evaluation Metric</h4>
+{%endblock%}
