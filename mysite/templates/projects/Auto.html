@@ -7,7 +7,7 @@
 {{super()}}
 {%endblock%}
 {%block maindiv%}
-<p><font size="6">{{project_detail['subject']}}</font></p>
+<p><font size="6">AutoDrive</font></p>
 {{project_detail['date']}}
 <hr>
 <br/>
@@ -107,9 +107,9 @@ This learner takes every step as an intersection. There may be a car coming form
 State includes the inputs and the location of the next waypoint.<br/>
 	State Variables:<br/>
 	<ul><li>Light</li>
-		<li>Ongoing</li>
-		<li>Left</li>
-		<li>Right</li>
+		<li>Ongoing - Any car coming from front</li>
+		<li>Left - Any car coming from left</li>
+		<li>Right - Any car coming from right</li>
 		<li>Next Waypoint</li></ul>
 The deadline is not important variable to decide the state of the red car. Seeing all such states (as defined above) will help the Q-learning algorithm to visit every possible condition the car can see (after a quite long training time). <br/>
 
@@ -123,7 +123,7 @@ X = gamma*max(a')Q(s',a')
 
  <h3><u>Combining the above two approaches</u></h3>
 
- The agent in the reinforcement part works randomly, atleast initially. Getting more ultrasonic sensors would make the pi car closer to that in the simulator. The supervised learner pops in where the random part comes in. Combining these techniques may overcome some of there cons. Initially the action is chosen by the supervised learner(rather than by random choice). 
+ The agent in the reinforcement part works randomly, atleast initially. Getting more ultrasonic sensors would make the pi car closer to that in the simulator. The supervised learner pops in where the random part comes in. Combining these techniques may overcome some of their individual cons. Initially the action is chosen by the supervised learner(rather than by random choice). 
 
 <br/>
 <br/>
