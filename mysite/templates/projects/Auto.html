@@ -21,7 +21,7 @@ sempiternal (like a robo-nurse in a hospital environment). Let us start up with 
 Find the project code <a href='https://github.com/ferbncode/AutoDrive'>here</a>.
 <br/><br/>
 <div align="center">
-<img style="max-width:350px;border-radius:3%" src="{{url_for('static', filename='images/car3.jpg')}}" alt="Image of the Raspberry Pi Car">
+<img class="ui image"style="max-width:350px;border-radius:3%" src="{{url_for('static', filename='images/car3.jpg')}}" alt="Image of the Raspberry Pi Car">
 <p>The Raspberry Pi Car</p>
 </div>
 <h3><u>Supervised Approach</u></h3>
@@ -107,16 +107,16 @@ This learner takes every step as an intersection. There may be a car coming form
 State includes the inputs and the location of the next waypoint.<br/>
 	State Variables:<br/>
 	<ul><li>Light</li>
-		<li>Ongoing - Any car coming from front</li>
-		<li>Left - Any car coming from left</li>
-		<li>Right - Any car coming from right</li>
+		<li>Ongoing - Any car coming from front?</li>
+		<li>Left - Any car coming from left?</li>
+		<li>Right - Any car coming from right?</li>
 		<li>Next Waypoint</li></ul>
 The deadline is not important variable to decide the state of the red car. Seeing all such states (as defined above) will help the Q-learning algorithm to visit every possible condition the car can see (after a quite long training time). <br/>
 
 Q-learning solves the Bellman equation and chooses the best action according to Q-values. The Q values are updated as:	
 <div align="center">
 Q(s,a) = (1-alpha)*Q(s,a) + alpha*(X)<br/>
-X = gamma*max(a')Q(s',a')
+X = reward + gamma*max(a')Q(s',a')
 </div>
 <br/>
  By application of Q-learning, reaches the destination without breaking rules and making use of the shortest path. The point is that the actions are firstly chosen randomly. Now,  the max(a) Q(s, a ) gives us the utility of the state we are in. Thus, after the agent has seen all actions related to a state the agent can then choose the best action. That would be moving closer to the optimal policy. The agent gets bigger reward for reaching the destination, thus this strengthens the optimal policy more. The presence of the next_waypoint in the state helps the agent to take the best action trying to take the shortest path and avoiding any accidents. Any illegal action will make the agent get negative rewards. Thus the policy will be changing (if necessary, that is if the Q-values changes) and getting closer to the optimal policy.
