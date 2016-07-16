@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 from  ..models import *
 projects = Blueprint('projects', __name__)
-
+from flask import Markup
 @projects.route('/')
 def index():
 	projects_summary = []
@@ -13,9 +13,12 @@ def index():
 def projectread(projectname):
 	project_detail = query_db("select * from projects where subject=?", [projectname])
 	project_detail = project_detail[0]
+	project_detail_detail = Markup(project_detail['detail'])
 	if project_detail == []:
 		return "Its a 404 buddy",404
-	return render_template("projects/projdet.html", project_detail = project_detail)
+	a = project_detail['subject']
+	a = a[:4]
+	return render_template("projects/{}.html".format(a), project_detail = project_detail, project_det = project_detail_detail)
 @projects.route('/test')
 def pr():
 	return render_template('projects/detailTest.html')
