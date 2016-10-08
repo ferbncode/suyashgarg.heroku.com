@@ -23,7 +23,7 @@ def contact():
 
 @app.route('/know_more')
 def know_more():
-	return "This is the know me more page"
+	return "This is the know me more page and this has been changed"
 
 @app.route('/code')
 def work():
