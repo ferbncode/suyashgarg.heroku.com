@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect
 from  ..models import *
 projects = Blueprint('projects', __name__)
 from flask import Markup
@@ -22,3 +22,8 @@ def projectread(projectname):
 @projects.route('/test')
 def pr():
 	return render_template('projects/detailTest.html')
+
+@projects.route('/AutoDrive')
+def redir():
+    return redirect("/projects/AutoDrive: Autonomous Driving")
+        
